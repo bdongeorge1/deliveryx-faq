@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Delivery X FAQ | RxBLU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* RxBLU palette pulled from rxblu.com */
+        :root {
+            --navy: #010f38;
+            --blue: #2d59f0;
+            --sky: #50c4fe;
+            --ink: #1c1b2a;
+            --muted: #5d6c7b;
+            --line: rgba(1, 15, 56, .10);
+            --tint: #eef3ff;
+            --tint-sky: #eaf8ff;
+            --card: #ffffff;
+            --bg: #ffffff;
+            --radius: 20px;
+            --radius-sm: 10px;
+            --font: "Instrument Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.55in 0.7in 0.6in;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        header .logo {
+            height: 34px;
+            display: block;
+        }
+
+        header .meta {
+            text-align: right;
+            font-size: 12.5px;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        header .meta strong {
+            color: var(--navy);
+            font-weight: 600;
+            display: block;
+            font-size: 13.5px;
+        }
+
+        .gradient-bar {
+            height: 4px;
+            border-radius: 99px;
+            background: linear-gradient(90deg, var(--blue), var(--sky));
+            margin: 0 0 34px;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            margin-bottom: 36px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--blue);
+            background: var(--tint);
+            padding: 5px 12px;
+            border-radius: 99px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -.02em;
+            margin: 0 0 12px;
+        }
+
+        .lede {
+            font-size: 17px;
+            color: var(--muted);
+            margin: 0;
+            max-width: 34em;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-head {
+            break-after: avoid;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .num {
+            flex: 0 0 auto;
+            width: 34px;
+            height: 34px;
+            border-radius: 99px;
+            background: linear-gradient(135deg, var(--blue), var(--sky));
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        h2 {
+            font-size: 24px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -.01em;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 20px 0 6px;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 12px;
+            padding-left: 1.3em;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        li::marker {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Two-column: text + phone screenshot */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 2.35in;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .split.no-fig {
+            grid-template-columns: 1fr;
+        }
+
+        figure {
+            margin: 0;
+            break-inside: avoid;
+        }
+
+        .phone {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(1, 15, 56, .08);
+        }
+
+        .phone img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 13px;
+        }
+
+        figcaption {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.45;
+            margin-top: 8px;
+            padding: 0 4px;
+        }
+
+        /* Callouts */
+        .callout {
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            margin: 14px 0;
+            border-left: 4px solid var(--blue);
+            background: var(--tint);
+            break-inside: avoid;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .callout.sky {
+            border-left-color: var(--sky);
+            background: var(--tint-sky);
+        }
+
+        .callout.important {
+            background: var(--navy);
+            color: #fff;
+            border-left: 4px solid var(--sky);
+        }
+
+        .callout.important strong {
+            color: #fff;
+        }
+
+        .callout.important .dont li::before {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%2350c4fe'/><path d='M6 6l8 8M14 6l-8 8' stroke='%23010f38' stroke-width='2.2' stroke-linecap='round'/></svg>");
+        }
+
+        .callout.important .label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 6px;
+        }
+
+        /* "Do not" list */
+        .dont {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 12px;
+        }
+
+        .dont li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 8px;
+        }
+
+        .dont li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='%23010f38'/><path d='M6 6l8 8M14 6l-8 8' stroke='white' stroke-width='2.2' stroke-linecap='round'/></svg>") center/contain no-repeat;
+        }
+
+        /* Key-facts strip */
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 6px 0 22px;
+        }
+
+        .fact {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+        }
+
+        .fact .big {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--blue);
+            line-height: 1.1;
+        }
+
+        .fact .small {
+            font-size: 12.5px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer img {
+            height: 20px;
+            opacity: .9;
+        }
+
+        /* ---------- Print ---------- */
+        @page {
+            size: Letter;
+            margin: 0.5in 0.5in 0.6in;
+        }
+
+        @media print {
+            body {
+                font-size: 13.5px;
+            }
+
+            .page {
+                max-width: none;
+                padding: 0.1in 0.2in 0;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            .lede {
+                font-size: 15px;
+            }
+
+            .split {
+                grid-template-columns: 1fr 2.1in;
+                gap: 22px;
+            }
+
+            .phone {
+                box-shadow: none;
+            }
+
+            section {
+                margin-bottom: 30px;
+            }
+
+            .hero {
+                margin-bottom: 20px;
+            }
+
+            .facts {
+                margin-bottom: 22px;
+            }
+
+            .fact {
+                padding: 11px 14px;
+            }
+
+            .gradient-bar {
+                margin-bottom: 22px;
+            }
+
+            .callout {
+                padding: 12px 14px;
+                margin: 12px 0;
+            }
+
+            h3 {
+                margin-top: 16px;
+            }
+
+            .break {
+                break-before: page;
+            }
+
+            footer {
+                display: none;
+            }
+        }
+
+        /* ---------- FAQ ---------- */
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <header>
+            <img class="logo" src="assets/rxblu-logo.svg" alt="RxBLU">
+            <div class="meta">
+                <strong>Delivery X FAQ</strong>
+                Updated September 30, 2026
+            </div>
+        </header>
+        <div class="gradient-bar"></div>
+
+        <div class="hero">
+            <span class="eyebrow">Help</span>
+            <h1>Delivery X FAQ</h1>
+            <p class="lede">Quick fixes for the most common problems on the road. Find your problem, then follow the steps in order.</p>
+        </div>
+
+        <!-- QUESTION LIST: one line per question, linked to its section. Add a line here for every new question. -->
+        <section>
+            <h3>Questions</h3>
+            <ol>
+                <li><a href="#camera">My camera is not working</a></li>
+            </ol>
+        </section>
+
+        <!-- QUESTION: one section per question. id matches the link above. Every question after the first gets class="break". -->
+        <section id="camera">
+            <div class="section-head">
+                <div class="num">1</div>
+                <h2>My camera is not working</h2>
+            </div>
+            <div class="split no-fig">
+                <div>
+                    <p>The camera shows a black screen, does not open, or never asks to take a photo. Most of the time, this means your phone is not letting Delivery X use the camera. Work through these steps in order and stop when the camera works.</p>
+
+                    <!-- TODO: add screenshots of the camera permission settings on iPhone and Android -->
+
+                    <h3>1. Give Delivery X access to your camera</h3>
+                    <p>When your phone asks to use the camera, tap <strong>Allow</strong>. If you tapped <strong>Don't Allow</strong> before, your phone remembers it. Turn it back on:</p>
+
+                    <p><strong>iPhone</strong></p>
+                    <ol>
+                        <li><strong>Open Settings.</strong> On newer iPhones, tap <strong>Apps</strong> next.</li>
+                        <li><strong>Tap the browser you use for Delivery X.</strong> For example, Safari or Edge.</li>
+                        <li><strong>Tap Camera.</strong> Choose <strong>Allow</strong>, or turn it on.</li>
+                        <li><strong>Go back to Delivery X.</strong> Try the camera again.</li>
+                    </ol>
+
+                    <p><strong>Android</strong></p>
+                    <ol>
+                        <li><strong>Open Settings, then Apps.</strong></li>
+                        <li><strong>Tap the browser you use for Delivery X.</strong> For example, Edge or Chrome.</li>
+                        <li><strong>Tap Permissions, then Camera.</strong> Choose <strong>Allow only while using the app</strong>.</li>
+                        <li><strong>Go back to Delivery X.</strong> Tap the icon to the left of the web address and make sure Camera is allowed. Try the camera again.</li>
+                    </ol>
+
+                    <h3>2. Close other apps that use the camera</h3>
+                    <p>Only one app can use the camera at a time. Close the Camera app, video calls, and any scanner apps, then try again.</p>
+
+                    <h3>3. Reload Delivery X</h3>
+                    <p>Reload the page so it asks for the camera again.</p>
+                    <div class="callout important">
+                        <span class="label">Before you reload</span>
+                        <p><strong>Do not:</strong></p>
+                        <ul class="dont" style="color:#fff">
+                            <li>reload with no signal</li>
+                            <li>reload while the green bar is showing</li>
+                        </ul>
+                        <p>With no signal, the app will not run after a reload. Wait until you have Wi-Fi or cellular and the green bar is gone.</p>
+                    </div>
+
+                    <h3>4. Restart your phone</h3>
+                    <p>Wait until <strong>Packages in Queue</strong> shows 0, then turn your phone off and on again. Open Delivery X and try the camera.</p>
+
+                    <h3>Still not working?</h3>
+                    <!-- TODO: add who drivers should contact (name, phone, or email) -->
+                    <p>Contact your supervisor. Tell them your phone model and what you see when you open the camera.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <img src="assets/rxblu-logo.svg" alt="RxBLU">
+            <span>Delivery X FAQ · rxblu.com</span>
+        </footer>
+
+    </div>
+</body>
+
+</html>
